@@ -1,0 +1,3 @@
+# Netlify redirects for Royal Safe Drive
+# Ensures clean SPA routing if hash links or routes are accessed directly
+/* /index.html 200
