@@ -1,64 +1,42 @@
-/* Royal Safe Drive Dubai - European Executive Chauffeur Design System
-   Inspired by SafeDriver Group Germany (https://safedriver.de/)
-   Aesthetic: Clean light luxury canvas, organic flowing wave ribbons, high-contrast Bento cards, pill CTAs & bold geometric typography */
+/* Royal Safe Drive Dubai - Ultra Luxury Safe Chauffeur Design System
+   Combines SafeDriver Germany's modern minimalist geometry & Bento layout
+   with Royal Safe Drive's official brand logo and obsidian-red color palette */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  /* Safedriver.de Core Canvas */
-  --bg-body: #F4F5F7;
-  --bg-canvas: #FFFFFF;
-  --bg-subtle: #EBECEE;
-  --bg-card-light: #FFFFFF;
+  /* Royal Safe Drive Official Brand Palette */
+  --bg-body: #07080b;
+  --bg-canvas: #0c0e15;
+  --bg-card: #0f121b;
+  --bg-card-hover: #151924;
+  --bg-input: #161a26;
   
-  /* Text & Contrast Hierarchy */
-  --text-primary: #121316;
-  --text-secondary: #4A4D54;
-  --text-muted: #737780;
-  --border-light: #E4E6EA;
-  --border-subtle: rgba(0, 0, 0, 0.08);
+  /* Brand Accents */
+  --brand-red: #ff1e27;
+  --brand-red-hover: #e0141c;
+  --brand-red-dark: #b80c14;
+  --brand-red-glow: rgba(255, 30, 39, 0.28);
+  --brand-gold: #f59e0b;
+  --whatsapp-green: #25d366;
+  --whatsapp-hover: #20bd5a;
   
-  /* Brand Luxury Accents */
-  --brand-burgundy: #731C24;
-  --brand-burgundy-dark: #58141B;
-  --brand-gold: #D97706;
-  --brand-gold-light: #FEF3C7;
-  --whatsapp-green: #25D366;
-  --whatsapp-hover: #20BD5A;
-  --executive-dark: #1E2024;
-  --executive-slate: #2C2D30;
+  /* Text & Border Hierarchy */
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-card: rgba(255, 255, 255, 0.08);
+  --border-card-hover: rgba(255, 30, 39, 0.4);
   
-  /* Safedriver.de Bento Theme Palette */
-  --bento-amber-bg: #FEF3C7;
-  --bento-amber-wave: #FDE68A;
-  --bento-amber-text: #78350F;
-  --bento-amber-pill: #92400E;
-  
-  --bento-sage-bg: #DCFCE7;
-  --bento-sage-wave: #BBF7D0;
-  --bento-sage-text: #14532D;
-  --bento-sage-pill: #166534;
-  
-  --bento-wine-bg: #731C24;
-  --bento-wine-wave: #8B232D;
-  --bento-wine-text: #FFFFFF;
-  --bento-wine-sub: #FECDD3;
-  
-  --bento-slate-bg: #1E293B;
-  --bento-slate-wave: #334155;
-  --bento-slate-text: #FFFFFF;
-  --bento-slate-sub: #94A3B8;
-
   /* Geometry */
   --radius-pill: 9999px;
   --radius-card: 28px;
   --radius-card-sm: 20px;
-  --radius-card-lg: 36px;
   
   /* Elevation */
-  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  --shadow-float: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  --shadow-float: 0 20px 45px -12px rgba(0, 0, 0, 0.6);
+  --shadow-red-glow: 0 10px 30px -5px rgba(255, 30, 39, 0.35);
 }
 
 * {
@@ -81,6 +59,10 @@ html {
 body {
   position: relative;
   background-color: var(--bg-body);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255, 30, 39, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 10% 40%, rgba(255, 30, 39, 0.04) 0%, transparent 35%),
+    radial-gradient(circle at 90% 70%, rgba(255, 30, 39, 0.03) 0%, transparent 35%);
   color: var(--text-primary);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -89,23 +71,23 @@ body {
   max-width: 100vw;
 }
 
-/* Custom Minimal Scrollbar */
+/* Custom Minimal Dark Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-body);
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #1e2230;
   border-radius: var(--radius-pill);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: var(--brand-red);
 }
 
-/* Typography Hierarchy inspired by SafeDriver.de */
+/* Typography Hierarchy */
 h1, h2, h3, h4, .font-heading {
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   letter-spacing: -0.025em;
@@ -120,7 +102,7 @@ h1, h2, h3, h4, .font-heading {
   display: inline-block;
 }
 
-/* Safedriver.de Signature Pill Buttons */
+/* Signature Pill Buttons (SafeDriver Style in Brand Red / White / WhatsApp) */
 .btn-pill {
   display: inline-flex;
   align-items: center;
@@ -137,40 +119,29 @@ h1, h2, h3, h4, .font-heading {
   white-space: nowrap;
 }
 
-.btn-pill-outline-dark {
-  border: 1.5px solid var(--text-primary);
-  color: var(--text-primary);
-  background: transparent;
-}
-.btn-pill-outline-dark:hover {
-  background: var(--text-primary);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px -4px rgba(18, 19, 22, 0.2);
-}
-
 .btn-pill-outline-white {
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.04);
 }
 .btn-pill-outline-white:hover {
-  background: #FFFFFF;
-  color: var(--text-primary);
+  border-color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px -4px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 16px -4px rgba(255, 255, 255, 0.2);
 }
 
-.btn-pill-solid-dark {
-  background: var(--executive-dark);
+.btn-pill-brand-red {
+  background: var(--brand-red);
   color: #FFFFFF;
-  border: 1.5px solid var(--executive-dark);
+  border: 1.5px solid var(--brand-red);
+  font-weight: 700;
 }
-.btn-pill-solid-dark:hover {
-  background: #000000;
-  border-color: #000000;
+.btn-pill-brand-red:hover {
+  background: var(--brand-red-hover);
+  border-color: var(--brand-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-red-glow);
 }
 
 .btn-pill-whatsapp {
@@ -183,15 +154,15 @@ h1, h2, h3, h4, .font-heading {
   background: var(--whatsapp-hover);
   border-color: var(--whatsapp-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px -4px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 8px 20px -4px rgba(37, 211, 102, 0.4);
 }
 
 /* Floating Glass Header */
 .header-glass {
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(7, 8, 11, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
 }
 
@@ -202,13 +173,15 @@ h1, h2, h3, h4, .font-heading {
   z-index: 1;
 }
 
-/* Bento Card Base & Themed Flavors */
+/* Bento Card Base & Royal Safe Drive Themed Flavors */
 .bento-card {
   position: relative;
   border-radius: var(--radius-card);
   overflow: hidden;
   padding: 2.25rem;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #0f121b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -216,106 +189,70 @@ h1, h2, h3, h4, .font-heading {
 
 .bento-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
 }
 
-/* Flavor 1: Amber Marigold (After Party / Night Out) */
-.bento-amber {
-  background-color: #FEF3C7 !important;
-  color: #78350F !important;
-  border: 1px solid rgba(252, 211, 77, 0.6) !important;
-}
-.bento-amber:hover {
-  box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.2);
-}
-.bento-amber .card-btn {
-  border: 1.5px solid #92400E;
-  color: #92400E;
-}
-.bento-amber .card-btn:hover {
-  background: #92400E;
-  color: #FFFFFF;
-}
-
-/* Flavor 2: Mint Sage (Hourly / Dedicated Chauffeur) */
-.bento-sage {
-  background-color: #DCFCE7 !important;
-  color: #14532D !important;
-  border: 1px solid rgba(134, 239, 172, 0.6) !important;
-}
-.bento-sage:hover {
-  box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.2);
-}
-.bento-sage .card-btn {
-  border: 1.5px solid #166534;
-  color: #166534;
-}
-.bento-sage .card-btn:hover {
-  background: #166534;
-  color: #FFFFFF;
-}
-
-/* Flavor 3: Royal Burgundy (Inter-Emirates Transfer) */
-.bento-wine {
-  background-color: #731C24 !important;
+/* Bento Tile 1: Night-Out Safe Driver (Red Accent) */
+.bento-royal-night {
+  background: linear-gradient(145deg, #12141f 0%, #0d0f17 100%) !important;
+  border: 1px solid rgba(255, 30, 39, 0.35) !important;
   color: #FFFFFF !important;
-  border: 1px solid rgba(185, 28, 28, 0.5) !important;
 }
-.bento-wine:hover {
-  box-shadow: 0 20px 40px -10px rgba(115, 28, 36, 0.35);
-}
-.bento-wine .card-btn {
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  color: #FFFFFF;
-}
-.bento-wine .card-btn:hover {
-  background: #FFFFFF;
-  color: #731C24;
+.bento-royal-night:hover {
+  border-color: rgba(255, 30, 39, 0.7) !important;
+  box-shadow: 0 20px 45px -10px rgba(255, 30, 39, 0.25) !important;
 }
 
-/* Flavor 4: Petrol Slate Navy (Corporate & Monthly) */
-.bento-slate {
-  background-color: #1E293B !important;
+/* Bento Tile 2: Hourly Standby Chauffeur (Gold Accent) */
+.bento-royal-hourly {
+  background: linear-gradient(145deg, #13141c 0%, #0d0f17 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
   color: #FFFFFF !important;
-  border: 1px solid rgba(71, 85, 105, 0.5) !important;
 }
-.bento-slate:hover {
-  box-shadow: 0 20px 40px -10px rgba(30, 41, 59, 0.35);
-}
-.bento-slate .card-btn {
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  color: #FFFFFF;
-}
-.bento-slate .card-btn:hover {
-  background: #FFFFFF;
-  color: #1E293B;
+.bento-royal-hourly:hover {
+  border-color: rgba(245, 158, 11, 0.6) !important;
+  box-shadow: 0 20px 45px -10px rgba(245, 158, 11, 0.2) !important;
 }
 
-/* White Floating Card */
-.card-clean-white {
-  background-color: #FFFFFF !important;
-  background: #FFFFFF !important;
-  border: 1px solid #E2E8F0;
-  border-radius: var(--radius-card);
-  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.18) !important;
+/* Bento Tile 3: Inter-Emirates Travel (Crimson Dark Accent) */
+.bento-royal-emirates {
+  background: linear-gradient(145deg, #18090d 0%, #0d0f17 100%) !important;
+  border: 1px solid rgba(220, 38, 38, 0.35) !important;
+  color: #FFFFFF !important;
+}
+.bento-royal-emirates:hover {
+  border-color: rgba(220, 38, 38, 0.7) !important;
+  box-shadow: 0 20px 45px -10px rgba(220, 38, 38, 0.25) !important;
+}
+
+/* Bento Tile 4: Corporate & Retainers (Slate Navy Accent) */
+.bento-royal-corporate {
+  background: linear-gradient(145deg, #0d1422 0%, #0d0f17 100%) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  color: #FFFFFF !important;
+}
+.bento-royal-corporate:hover {
+  border-color: rgba(59, 130, 246, 0.6) !important;
+  box-shadow: 0 20px 45px -10px rgba(59, 130, 246, 0.2) !important;
 }
 
 /* Input Fields inside Fare Calculator */
 .clean-input {
   width: 100%;
-  background: #F8F9FA;
-  border: 1.5px solid #E2E8F0;
+  background: #141724;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   padding: 0.75rem 1rem;
   font-size: 0.92rem;
-  color: var(--text-primary);
+  color: #FFFFFF;
   font-weight: 500;
   transition: all 0.2s ease;
   outline: none;
 }
 .clean-input:focus {
-  background: #FFFFFF;
-  border-color: #121316;
-  box-shadow: 0 0 0 3px rgba(18, 19, 22, 0.08);
+  background: #181d2c;
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 3px rgba(255, 30, 39, 0.2);
 }
 
 /* Interactive Vehicle Chips */
@@ -324,8 +261,8 @@ h1, h2, h3, h4, .font-heading {
   border-radius: var(--radius-pill);
   font-size: 0.8rem;
   font-weight: 600;
-  border: 1.5px solid #E2E8F0;
-  background: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: #141724;
   color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -334,14 +271,14 @@ h1, h2, h3, h4, .font-heading {
   gap: 0.4rem;
 }
 .vehicle-chip:hover {
-  border-color: #94A3B8;
-  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
 }
 .vehicle-chip.active {
-  background: var(--executive-dark);
+  background: var(--brand-red);
   color: #FFFFFF;
-  border-color: var(--executive-dark);
-  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.15);
+  border-color: var(--brand-red);
+  box-shadow: 0 4px 15px -2px rgba(255, 30, 39, 0.4);
 }
 
 /* Service Pills */
@@ -351,19 +288,19 @@ h1, h2, h3, h4, .font-heading {
   font-size: 0.82rem;
   font-weight: 600;
   border: 1.5px solid transparent;
-  background: #F1F3F5;
-  color: var(--text-secondary);
+  background: #161924;
+  color: var(--text-muted);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 .service-pill-btn:hover {
-  color: var(--text-primary);
-  background: #E9ECEF;
+  color: #FFFFFF;
+  background: #1d2130;
 }
 .service-pill-btn.active {
-  background: var(--executive-dark);
+  background: var(--brand-red);
   color: #FFFFFF;
-  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px -2px rgba(255, 30, 39, 0.4);
 }
 
 /* Quick Pickup Location Chips */
@@ -372,36 +309,35 @@ h1, h2, h3, h4, .font-heading {
   border-radius: var(--radius-pill);
   font-size: 0.75rem;
   font-weight: 600;
-  border: 1px solid #E2E8F0;
-  background: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #141724;
   color: var(--text-muted);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 .quick-pickup-btn:hover {
-  border-color: #121316;
-  color: var(--text-primary);
+  border-color: var(--brand-red);
+  color: #FFFFFF;
 }
 .quick-pickup-btn.active {
-  background: #121316;
+  background: var(--brand-red);
   color: #FFFFFF;
-  border-color: #121316;
+  border-color: var(--brand-red);
 }
 
-/* FAQ Accordion Item */
+/* FAQ Card */
 .faq-card {
-  background: #FFFFFF;
-  border: 1px solid var(--border-light);
+  background: #0f121b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
   overflow: hidden;
   transition: all 0.2s ease;
 }
 .faq-card:hover {
-  border-color: #CBD5E1;
-  box-shadow: var(--shadow-subtle);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Mobile Sticky Bottom CTA */
+/* Mobile Sticky Bottom Bar */
 .mobile-bottom-bar {
   display: none;
 }
@@ -412,9 +348,9 @@ h1, h2, h3, h4, .font-heading {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(7, 8, 11, 0.95);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 0.75rem 1rem;
     z-index: 50;
     gap: 0.75rem;
