@@ -328,6 +328,86 @@ document.addEventListener('DOMContentLoaded', () => {
     liveCountElem.textContent = `${count} Chauffeurs Online`;
   }
 
+  // Razor-Thin Scroll Progress Bar
+  const scrollProgress = document.getElementById('scrollProgress');
+  if (scrollProgress) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (docHeight > 0) {
+        const percent = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = `${percent}%`;
+      }
+    }, { passive: true });
+  }
+
+  // Real-Time Dubai Clock (Asia/Dubai GST)
+  const dubaiClockElem = document.getElementById('dubaiClock');
+  if (dubaiClockElem) {
+    function updateDubaiTime() {
+      try {
+        const now = new Date();
+        const timeStr = new Intl.DateTimeFormat('en-AE', {
+          timeZone: 'Asia/Dubai',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        }).format(now);
+        dubaiClockElem.textContent = `Dubai · ${timeStr} GST`;
+      } catch (e) {
+        dubaiClockElem.textContent = 'Dubai · 24/7 GST';
+      }
+    }
+    updateDubaiTime();
+    setInterval(updateDubaiTime, 30000);
+  }
+
+  // 1-Tap Save Dispatch Contact (.vcf vCard Download)
+  const saveContactBtn = document.getElementById('btnSaveContact');
+  if (saveContactBtn) {
+    saveContactBtn.addEventListener('click', () => {
+      const vcard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Dispatch;Royal Safe Drive;;;',
+        'FN:Royal Safe Drive Dubai (24/7 Dispatch)',
+        'ORG:Royal Safe Drive',
+        'TEL;TYPE=WORK,VOICE:+971503308757',
+        'URL:https://royalsafedrive.ae',
+        'ADR;TYPE=WORK:;;Ontario Tower - C1701, Business Bay;Dubai;;UAE',
+        'NOTE:100% RTA Certified Safe Driver & Chauffeur Service - 24/7 Rapid 15 Min Dispatch.',
+        'END:VCARD'
+      ].join('\n');
+
+      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Royal-Safe-Drive-Dubai.vcf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  // Silky Scroll Reveal Animations
+  const revealElements = document.querySelectorAll('.reveal-up');
+  if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(el => observer.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('is-visible'));
+  }
+
   // Initial Calculation
   calculateFare();
 });
