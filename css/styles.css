@@ -378,13 +378,8 @@ h1, h2, h3, h4, .font-heading {
   box-shadow: 0 8px 18px -4px rgba(225, 29, 42, 0.14);
 }
 
-/* Silky Scroll Reveal */
+/* Silky Scroll Reveal (Always Visible Fallback) */
 .reveal-up {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-up.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
