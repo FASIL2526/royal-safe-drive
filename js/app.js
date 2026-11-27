@@ -328,42 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
     liveCountElem.textContent = `${count} Chauffeurs Online`;
   }
 
-  // Live Booking Notification Toast (Subtle bottom-left activity toast)
-  const notificationToast = document.getElementById('liveBookingToast');
-  const toastText = document.getElementById('liveToastText');
-  const toastTime = document.getElementById('liveToastTime');
-
-  if (notificationToast && toastText && toastTime) {
-    const liveBookings = [
-      { loc: 'DIFC Gate Village (Porsche Panamera)', time: '2m ago' },
-      { loc: 'CÉ LA VI Downtown Dubai (Rolls-Royce Ghost)', time: '4m ago' },
-      { loc: 'Soho Garden Palm Jumeirah (Mercedes G63 AMG)', time: '6m ago' },
-      { loc: 'Ontario Tower, Business Bay (Bentley Bentayga)', time: '8m ago' },
-      { loc: 'Dubai Marina Pier 7 (Range Rover)', time: '11m ago' },
-      { loc: 'Dubai ⇄ Abu Dhabi Yas Marina (Audi RSQ8)', time: '14m ago' }
-    ];
-    let toastIndex = 0;
-
-    function cycleToast() {
-      const item = liveBookings[toastIndex % liveBookings.length];
-      toastText.textContent = `Safe Driver dispatched to ${item.loc}`;
-      toastTime.textContent = item.time;
-      notificationToast.classList.remove('opacity-0', 'translate-y-4');
-      notificationToast.classList.add('opacity-100', 'translate-y-0');
-
-      setTimeout(() => {
-        notificationToast.classList.add('opacity-0', 'translate-y-4');
-        notificationToast.classList.remove('opacity-100', 'translate-y-0');
-      }, 5000);
-
-      toastIndex++;
-    }
-
-    // Initial show after 3s, then every 16s
-    setTimeout(cycleToast, 3000);
-    setInterval(cycleToast, 16000);
-  }
-
   // Initial Calculation
   calculateFare();
 });
