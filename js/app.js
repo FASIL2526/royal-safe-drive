@@ -408,6 +408,114 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => el.classList.add('is-visible'));
   }
 
+  // Obsidian Night-Out Mode Toggle
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const themeToggleMobile = document.getElementById('themeToggleMobile');
+  const iconMoon = document.getElementById('iconMoon');
+  const iconSun = document.getElementById('iconSun');
+
+  function applyTheme(isNight) {
+    if (isNight) {
+      document.body.classList.add('night-mode');
+      if (iconMoon) iconMoon.classList.add('hidden');
+      if (iconSun) iconSun.classList.remove('hidden');
+    } else {
+      document.body.classList.remove('night-mode');
+      if (iconMoon) iconMoon.classList.remove('hidden');
+      if (iconSun) iconSun.classList.add('hidden');
+    }
+  }
+
+  try {
+    if (localStorage.getItem('rsd_theme') === 'night') {
+      applyTheme(true);
+    }
+  } catch (e) {}
+
+  function toggleTheme() {
+    const isNight = !document.body.classList.contains('night-mode');
+    applyTheme(isNight);
+    try {
+      localStorage.setItem('rsd_theme', isNight ? 'night' : 'day');
+    } catch (e) {}
+  }
+
+  if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+  if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
+  // Interactive Vehicle Class Concierge Selector
+  const vClassPills = document.querySelectorAll('.vehicle-class-pill');
+  const vehicleCertNote = document.getElementById('vehicleCertNote');
+  const heroWhatsappBtn = document.getElementById('heroWhatsappBtn');
+
+  vClassPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      vClassPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const vClass = pill.getAttribute('data-vclass') || 'Executive Sedan';
+      const certText = pill.getAttribute('data-cert') || '';
+      if (vehicleCertNote && certText) {
+        vehicleCertNote.textContent = certText;
+      }
+      if (heroWhatsappBtn) {
+        const msg = encodeURIComponent(`Hello Royal Safe Drive, I would like to dispatch a safe driver for my ${vClass} ASAP.`);
+        heroWhatsappBtn.href = `https://wa.me/971503308757?text=${msg}`;
+      }
+    });
+  });
+
+  // Mobile Quick-Book Bottom Sheet
+  const openQuickBookBtn = document.getElementById('openQuickBookBtn');
+  const closeQuickBookBtn = document.getElementById('closeQuickBookBtn');
+  const quickBookBackdrop = document.getElementById('quickBookBackdrop');
+  const quickBookSheet = document.getElementById('quickBookSheet');
+  const sheetWhatsappBtn = document.getElementById('sheetWhatsappBtn');
+  const sheetLocPills = document.querySelectorAll('.sheet-loc');
+  const sheetTimePills = document.querySelectorAll('.sheet-time');
+
+  let selectedSheetLoc = 'DIFC Gate Village';
+  let selectedSheetTime = 'ASAP (15–20 Mins)';
+
+  function updateSheetLink() {
+    if (!sheetWhatsappBtn) return;
+    const msg = encodeURIComponent(`Hello Royal Safe Drive, I need an RTA safe driver at ${selectedSheetLoc} (${selectedSheetTime}).`);
+    sheetWhatsappBtn.href = `https://wa.me/971503308757?text=${msg}`;
+  }
+
+  function openSheet() {
+    if (quickBookBackdrop) quickBookBackdrop.classList.add('open');
+    if (quickBookSheet) quickBookSheet.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSheet() {
+    if (quickBookBackdrop) quickBookBackdrop.classList.remove('open');
+    if (quickBookSheet) quickBookSheet.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (openQuickBookBtn) openQuickBookBtn.addEventListener('click', openSheet);
+  if (closeQuickBookBtn) closeQuickBookBtn.addEventListener('click', closeSheet);
+  if (quickBookBackdrop) quickBookBackdrop.addEventListener('click', closeSheet);
+
+  sheetLocPills.forEach(p => {
+    p.addEventListener('click', () => {
+      sheetLocPills.forEach(b => b.classList.remove('active'));
+      p.classList.add('active');
+      selectedSheetLoc = p.getAttribute('data-loc') || 'Dubai';
+      updateSheetLink();
+    });
+  });
+
+  sheetTimePills.forEach(p => {
+    p.addEventListener('click', () => {
+      sheetTimePills.forEach(b => b.classList.remove('active'));
+      p.classList.add('active');
+      selectedSheetTime = p.getAttribute('data-time') || 'ASAP';
+      updateSheetLink();
+    });
+  });
+
   // Initial Calculation
   calculateFare();
 });
