@@ -2,7 +2,7 @@
    Exact Brand Identity: Official RD Emblem (Red & Black) + White Modern Canvas
    Architecture: SafeDriver European Minimalist Geometry, Pill Buttons & Fluid Wave Ribbons */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
   /* Official Brand Palette from RD Master Logo & Graphic */
@@ -34,11 +34,11 @@
   --radius-card: 28px;
   --radius-card-sm: 20px;
   
-  /* Elevation */
-  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
-  --shadow-float: 0 20px 45px -12px rgba(0, 0, 0, 0.12);
-  --shadow-red-glow: 0 10px 25px -4px rgba(225, 29, 42, 0.35);
+  /* Elevation (Museum-Grade Quietness) */
+  --shadow-subtle: 0 2px 12px -2px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 8px 24px -6px rgba(0, 0, 0, 0.05);
+  --shadow-float: 0 18px 40px -14px rgba(0, 0, 0, 0.09);
+  --shadow-red-glow: 0 10px 25px -6px rgba(225, 29, 42, 0.28);
 }
 
 * {
@@ -92,10 +92,26 @@ h1, h2, h3, h4, .font-heading {
   font-weight: 700;
 }
 
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.hairline-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08) 20%, rgba(0, 0, 0, 0.08) 80%, transparent);
+}
+body.night-mode .hairline-divider {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.09) 20%, rgba(255, 255, 255, 0.09) 80%, transparent);
+}
+
 .kicker {
   text-transform: uppercase;
   font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   font-weight: 700;
   display: inline-block;
 }
